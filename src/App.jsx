@@ -21,7 +21,7 @@ const dietaryOptions = [
 
 function App() {
     const dropdownRef = useRef(null);
-  
+    const apiUrl = import.meta.env.VITE_SPI_URL;
     // Close dropdown when clicking outside
     useEffect(() => {
       const handleClickOutside = (event) => {
@@ -59,7 +59,7 @@ function App() {
 
       setLoading(true);
       try {
-        const response = await axios.post(`${import.meta.env.VITE_SPI_URL}/api/detect`, formData, {
+        const response = await axios.post(`${apiUrl}/api/detect`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
@@ -103,14 +103,14 @@ function App() {
     try {
       let response;
       if (searchType === 'ingredients') {
-        response = await axios.post(`${import.meta.env.VITE_SPI_URL}/api/recipe`, {
+        response = await axios.post(`${apiUrl}/api/recipe`, {
           vegetableNames,
           dietaryRestrictions,
           numRecipes
         });
       } else {
         const dietaryRestrictionsQuery = dietaryRestrictions.join(',');
-        response = await axios.get(`${import.meta.env.VITE_SPI_URL}/api/search`, {
+        response = await axios.get(`${apiUrl}/api/search`, {
           params: {
             query: productQuery,
             numRecipes,
@@ -129,7 +129,7 @@ function App() {
   const handleShowDetails = async (recipeId) => {
     setLoading(true);
     try {
-      const response = await axios.get(`${import.meta.env.VITE_SPI_URL}/api/recipe/${recipeId}`);
+      const response = await axios.get(`${apiUrl}/api/recipe/${recipeId}`);
       setDetailedRecipe(response.data);
     } catch (error) {
       console.error('Error fetching detailed recipe:', error);
