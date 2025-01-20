@@ -1,7 +1,7 @@
 import { useState,useEffect , useRef} from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-
+import axios from 'axios';
 import RecipeCard from './RecipeCard';
 import RecipeDetail from './RecipeDetail';
 import Header from './Header';
@@ -59,7 +59,7 @@ function App() {
 
       setLoading(true);
       try {
-        const response = await axios.post('/api/detect', formData, {
+        const response = await axios.post(`${import.meta.env.VITE_SPI_URL}/api/detect`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
@@ -103,14 +103,14 @@ function App() {
     try {
       let response;
       if (searchType === 'ingredients') {
-        response = await axios.post('/api/recipe', {
+        response = await axios.post(`${import.meta.env.VITE_SPI_URL}/api/recipe`, {
           vegetableNames,
           dietaryRestrictions,
           numRecipes
         });
       } else {
         const dietaryRestrictionsQuery = dietaryRestrictions.join(',');
-        response = await axios.get(`/api/search`, {
+        response = await axios.get(`${import.meta.env.VITE_SPI_URL}/api/search`, {
           params: {
             query: productQuery,
             numRecipes,
@@ -129,7 +129,7 @@ function App() {
   const handleShowDetails = async (recipeId) => {
     setLoading(true);
     try {
-      const response = await axios.get(`/api/recipe/${recipeId}`);
+      const response = await axios.get(`${import.meta.env.VITE_SPI_URL}/api/recipe/${recipeId}`);
       setDetailedRecipe(response.data);
     } catch (error) {
       console.error('Error fetching detailed recipe:', error);
