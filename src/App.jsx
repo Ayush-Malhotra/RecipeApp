@@ -59,7 +59,7 @@ function App() {
 
       setLoading(true);
       try {
-        const response = await axios.post('/api/detect', formData, {
+        const response = await axios.post('https://recipeappbackend-gvjj.onrender.com/api/detect', formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
@@ -103,14 +103,14 @@ function App() {
     try {
       let response;
       if (searchType === 'ingredients') {
-        response = await axios.post('/api/recipe', {
+        response = await axios.post('https://recipeappbackend-gvjj.onrender.com/api/recipe', {
           vegetableNames,
           dietaryRestrictions,
           numRecipes
         });
       } else {
         const dietaryRestrictionsQuery = dietaryRestrictions.join(',');
-        response = await axios.get(`/api/search`, {
+        response = await axios.get(`https://recipeappbackend-gvjj.onrender.com/api/search`, {
           params: {
             query: productQuery,
             numRecipes,
@@ -129,7 +129,7 @@ function App() {
   const handleShowDetails = async (recipeId) => {
     setLoading(true);
     try {
-      const response = await axios.get(`/api/recipe/${recipeId}`);
+      const response = await axios.get(`https://recipeappbackend-gvjj.onrender.com/api/recipe/${recipeId}`);
       setDetailedRecipe(response.data);
     } catch (error) {
       console.error('Error fetching detailed recipe:', error);
