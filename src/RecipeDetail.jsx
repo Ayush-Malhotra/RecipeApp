@@ -11,7 +11,7 @@ const RecipeDetail = () => {
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const response = await axios.get(`/api/recipe/${id}`);
+        const response = await axios.get(`https://recipeappbackend-gvjj.onrender.com/api/recipe/${id}`);
         setRecipe(response.data);
       } catch (error) {
         console.error('Error fetching detailed recipe:', error);
