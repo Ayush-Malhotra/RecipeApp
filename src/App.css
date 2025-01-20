@@ -1,0 +1,284 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.file-label {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.file-label:hover {
+  background-color: #0056b3;
+}
+
+.file-input {
+  display: none;
+}
+
+.file-custom {
+  cursor: pointer;
+}
+
+.preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.preview-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* .textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+} */
+.dropdown {
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.dropdown-header {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-arrow {
+  transition: transform 0.3s;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: relative;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  max-height: 175px;
+  overflow-y: auto;
+}
+
+.dropdown-item {
+  padding: 10px;
+  display: flex;
+  width: 80%;
+  align-items: center;
+}
+
+.dropdown-item input {
+  margin-right: 10px;
+}
+
+.selected-restrictions {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  text-align: left;
+}
+
+.selected-restrictions ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.selected-restrictions li {
+  margin-bottom: 5px;
+}
+
+.input {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #218838;
+}
+
+.loader {
+  font-size: 18px;
+  color: #007bff;
+  margin-top: 20px;
+}
+
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.detailed-recipe {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+}
+
+.detailed-recipe img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.detailed-recipe button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.detailed-recipe button:hover {
+  background-color: #0056b3;
+}
+
+.textarea {
+  width: 50%; /* Increase the width to 100% */
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: both;
+  margin-top: 10px;
+  align-self: center;
+  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+.input {
+  width: 100%; /* Increase the width to 100% */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 10px;
+  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+.input-group {
+  width: 100%; /* Ensure the input group takes the full width */
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: stretch; /* Stretch elements to fill the container */
+  margin-top: 10px;
+}
+
+.toggle-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.toggle-group label {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toggle-group input[type="radio"] {
+  margin-right: 5px;
+  accent-color: #007bff; /* Change the color to match your theme */
+}
+
+.toggle-group input[type="radio"]:checked + span {
+  font-weight: bold;
+  color: #007bff; /* Change the color to match your theme */
+}
+
+/* Add this to your existing CSS file */
+
+.back-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 16px 0;
+  display: block;
+  text-align: center;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
