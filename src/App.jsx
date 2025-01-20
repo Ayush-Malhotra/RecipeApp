@@ -1,7 +1,7 @@
 import { useState,useEffect , useRef} from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import axios from 'axios';
+
 import RecipeCard from './RecipeCard';
 import RecipeDetail from './RecipeDetail';
 import Header from './Header';
