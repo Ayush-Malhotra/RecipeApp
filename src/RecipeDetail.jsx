@@ -7,8 +7,9 @@ const RecipeDetail = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [subsitute, setSubsitute] = useState([]);
-  const [currSubsitute,setCurrentSubsitute] = useState(null);
+  const [substitute, setSubstitute] = useState([]);
+  const [currSubstitute, setCurrentSubstitute] = useState(null);
+
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
@@ -31,18 +32,18 @@ const RecipeDetail = () => {
   if (!recipe) {
     return <div className='error'>Recipe not found</div>;
   }
-  const findSubsitutes = async(ingredient) =>{
-      setCurrentSubsitute(ingredient);
-      try{
-        let response = await axios.post(`https://recipeappbackend-gvjj.onrender.com/api/recipe/subsitute`,{
-          ingredient
-        });
-        setSubsitute(response.data);
-      }
-      catch(err){
-        console.log(err);
-      }
-  }
+
+  const findSubstitutes = async (ingredient) => {
+    setCurrentSubstitute(ingredient);
+    try {
+      let response = await axios.post(`https://recipeappbackend-gvjj.onrender.com/api/recipe/substitute`, {
+        ingredient
+      });
+      setSubstitute(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className='recipe-detail'>
@@ -58,19 +59,18 @@ const RecipeDetail = () => {
               alt={ingredient.name}
             />
             <span>{ingredient.original}</span>
-            <button className='subsitute-button' onClick={findSubsitutes(ingredient.original)}>Subsitute</button>
+            <button className='substitute-button' onClick={() => findSubstitutes(ingredient.original)}>Substitute</button>
             {
-            currSubsitute === ingredient.original && subsitute.length > 0 && (
-              <ul>
-                {subsitute.map((sub)=>(
-                  <li key={sub}>sub</li>
-                ))}
-              </ul>
-            )         
+              currSubstitute === ingredient.original && substitute.length > 0 && (
+                <ul>
+                  {substitute.map((sub) => (
+                    <li key={sub}>{sub}</li>
+                  ))}
+                </ul>
+              )
             }
           </div>
         ))}
-        
       </div>
       <h1>Instructions</h1>
       <div className='instructions-list'>
@@ -83,7 +83,6 @@ const RecipeDetail = () => {
       </div>
     </div>
   );
-
 };
 
 export default RecipeDetail;
