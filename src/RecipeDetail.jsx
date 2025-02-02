@@ -58,12 +58,14 @@ const RecipeDetail = () => {
       <div className='ingredients-list'>
         {recipe.extendedIngredients.map((ingredient) => (
           <div key={ingredient.id} className='ingredient-item'>
+            <div>
             <img 
               className='ingImg'
               src={`https://img.spoonacular.com/ingredients_100x100/${ingredient.image}`} 
               alt={ingredient.name}
             />
             <span>{ingredient.original}</span>
+            </div>
             <button className='substitute-button' onClick={() => findSubstitutes(ingredient.original)}>Show Substitute</button>
             {
               currSubstitute === ingredient.original && substitute.length > 0 && (
