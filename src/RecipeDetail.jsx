@@ -36,7 +36,7 @@ const RecipeDetail = () => {
   const findSubstitutes = async (ingredient) => {
     setCurrentSubstitute(ingredient);
     try {
-      let response = await axios.post(`https://recipeappbackend-gvjj.onrender.com/api/recipe/substitute`, {
+      let response = await axios.post(`https://recipeappbackend-gvjj.onrender.com/api/recipe/subsitute`, {
         ingredient
       });
       setSubstitute(response.data);
