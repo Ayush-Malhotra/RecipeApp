@@ -7,7 +7,8 @@ const RecipeDetail = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const [subsitute, setSubsitute] = useState([]);
+  const [currSubsitute,setCurrentSubsitute] = useState(null);
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
@@ -24,11 +25,23 @@ const RecipeDetail = () => {
   }, [id]);
 
   if (loading) {
-    return <div className='loader'>Loading...</div>;
+    return <div className='loader'>Generating Recipe...</div>;
   }
 
   if (!recipe) {
     return <div className='error'>Recipe not found</div>;
+  }
+  const findSubsitutes = async(ingredient) =>{
+      setCurrentSubsitute(ingredient);
+      try{
+        let response = await axios.post(`https://recipeappbackend-gvjj.onrender.com/api/recipe/subsitute`,{
+          ingredient
+        });
+        setSubsitute(response.data);
+      }
+      catch(err){
+        console.log(err);
+      }
   }
 
   return (
@@ -45,6 +58,16 @@ const RecipeDetail = () => {
               alt={ingredient.name}
             />
             <span>{ingredient.original}</span>
+            <button className='subsitute-button' onClick={findSubsitutes(ingredient.original)}>Subsitute</button>
+            {
+            currSubsitute === ingredient.original && subsitute.length > 0 && (
+              <ul>
+                {subsitute.map((sub)=>(
+                  <li key={sub}>sub</li>
+                ))}
+              </ul>
+            )         
+            }
           </div>
         ))}
         
