@@ -65,6 +65,9 @@ function App() {
             'Content-Type': 'multipart/form-data'
           }
         });
+        if (response.data.length === 0) {
+          alert('No ingredients detected');
+        }
         setVegetableNames(response.data.join(', '));
       } 
       catch (error) {
@@ -122,11 +125,16 @@ function App() {
           }
         });
       }
+      if (response.data.length === 0) {
+        alert('No recipes found with these ingredients. Please try with other set of ingredients');
+      }
       setRecipes(response.data);
-    } catch (error) {
+    } 
+    catch (error) {
       alert('No recipes found with these ingredients. Please try with other set of indredients');
       console.error('Error fetching recipes:', error);
-    } finally {
+    } 
+    finally {
       setLoading(false);
     }
   };
