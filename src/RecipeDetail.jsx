@@ -36,16 +36,27 @@ const RecipeDetail = () => {
       <h1 className='headers'>{recipe.title}</h1>
       <img src={recipe.image} alt={recipe.title} className='recipe-image' />
       <h1>Ingredients</h1>
+      <div className='ingredients-list'>
         {recipe.extendedIngredients.map((ingredient) => (
-          <div key={ingredient.id} className='ingName'>
+          <div key={ingredient.id} className='ingredient-item'>
             <img 
-            className='ingImg'
-            src = {`https://img.spoonacular.com/ingredients_100x100/${ingredient.image}`} />
+              className='ingImg'
+              src={`https://img.spoonacular.com/ingredients_100x100/${ingredient.image}`} 
+              alt={ingredient.name}
+            />
             <span>{ingredient.original}</span>
           </div>
         ))}
+      </div>
       <h1>Instructions</h1>
-      <div dangerouslySetInnerHTML={{ __html: recipe.instructions }} />
+      <div className='instructions-list'>
+        {recipe.analyzedInstructions[0]?.steps.map((step) => (
+          <div key={step.number} className='instruction-step'>
+            <h3>Step {step.number}</h3>
+            <p>{step.step}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

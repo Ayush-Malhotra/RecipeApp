@@ -1,4 +1,3 @@
-
 .recipe-detail {
   max-width: 800px;
   margin: auto;
@@ -12,25 +11,41 @@
 }
 
 .recipe-detail .headers {
-    font-size: 2rem;
+  font-size: 2rem;
   text-align: center;
   margin-bottom: 20px;
 }
 
 .recipe-detail h1 {
-font-size: 1.5rem;
-text-align: left;
-margin-top: 20px;
+  font-size: 1.5rem;
+  text-align: left;
+  margin-top: 20px;
+  width: 100%;
 }
 
-.ingName{
+.ingredients-list, .instructions-list {
+  width: 100%;
   text-align: left;
 }
 
-.ingImg{
+.ingredient-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.ingImg {
   height: 40px;
   width: 40px;
-  display: inline-block;
+  margin-right: 10px;
+}
+
+.instruction-step {
+  margin-bottom: 20px;
+}
+
+.instruction-step h3 {
+  margin-bottom: 5px;
 }
 
 .recipe-image {
