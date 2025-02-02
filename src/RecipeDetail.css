@@ -42,6 +42,31 @@
   margin-right: 10px;
 }
 
+.substitute-button {
+  margin-left: auto;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.substitute-button:hover {
+  background-color: #0056b3;
+}
+
+.substitutes-list {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.substitutes-list li {
+  margin-bottom: 5px;
+  list-style-type: disc;
+}
+
 .instruction-step {
   margin-bottom: 20px;
 }

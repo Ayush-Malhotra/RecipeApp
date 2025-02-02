@@ -59,10 +59,10 @@ const RecipeDetail = () => {
               alt={ingredient.name}
             />
             <span>{ingredient.original}</span>
-            <button className='substitute-button' onClick={() => findSubstitutes(ingredient.original)}>Substitute</button>
+            <button className='substitute-button' onClick={() => findSubstitutes(ingredient.original)}>Find Substitute</button>
             {
               currSubstitute === ingredient.original && substitute.length > 0 && (
-                <ul>
+                <ul className='substitutes-list'>
                   {substitute.map((sub) => (
                     <li key={sub}>{sub}</li>
                   ))}
