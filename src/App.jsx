@@ -9,10 +9,10 @@ import Header from './Header';
 const dietaryOptions = [
   'Gluten Free',
   'Ketogenic',
-  'vegetarian',
+  'Vegetarian',
   'Lacto-Vegetarian',
   'Ovo-Vegetarian',
-  'vegan',
+  'Vegan',
   'Pescetarian',
   'Paleo',
   'Primal',
@@ -53,6 +53,7 @@ function App() {
 
     if (files.length > 0) {
       const formData = new FormData();
+      
       files.forEach(file => {
         formData.append('firstFile', file);
       });
@@ -65,9 +66,12 @@ function App() {
           }
         });
         setVegetableNames(response.data.join(', '));
-      } catch (error) {
+      } 
+      catch (error) {
+        alert('No ingredients detected');
         console.error('Error detecting vegetables:', error);
-      } finally {
+      } 
+      finally {
         setLoading(false);
       }
     }
@@ -120,6 +124,7 @@ function App() {
       }
       setRecipes(response.data);
     } catch (error) {
+      alert('No recipes found with these ingredients. Please try with other set of indredients');
       console.error('Error fetching recipes:', error);
     } finally {
       setLoading(false);
