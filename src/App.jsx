@@ -105,6 +105,10 @@ function App() {
   };
 
   const handleSubmit = async (event) => {
+    if(vegetableNames === ''){
+      alert('Please select an image or either type inside the ingredient box');
+      return;
+    }
     event.preventDefault();
     setLoading(true);
     try {
@@ -192,7 +196,7 @@ function App() {
                   ))}
                 </div>
                 {loading ? (
-                  <div className='loader'>Loading...</div>
+                  <div className='loader'>Finding Ingredients...</div>
                 ) : (
                   <>
                     <div className='input-group'>

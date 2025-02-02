@@ -10,13 +10,11 @@
   align-items: center;
 }
 
-
 .recipe-detail .headers {
   font-size: 2rem;
   text-align: center;
   margin-bottom: 20px;
 }
-
 
 .recipe-detail h1 {
   font-size: 1.5rem;
@@ -32,7 +30,8 @@
 
 .ingredient-item {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   margin-bottom: 10px;
 }
 
@@ -40,10 +39,11 @@
   height: 40px;
   width: 40px;
   margin-right: 10px;
+  border-radius: 5px;
 }
 
 .substitute-button {
-  margin-left: auto;
+  margin-top: 5px;
   padding: 5px 10px;
   background-color: #007bff;
   color: white;

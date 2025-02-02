@@ -34,6 +34,11 @@ const RecipeDetail = () => {
   }
 
   const findSubstitutes = async (ingredient) => {
+    if (currSubstitute === ingredient) {
+      setCurrentSubstitute(null);
+      setSubstitute([]);
+      return;
+    }
     setCurrentSubstitute(ingredient);
     try {
       let response = await axios.post(`https://recipeappbackend-gvjj.onrender.com/api/recipe/subsitute`, {
@@ -59,7 +64,7 @@ const RecipeDetail = () => {
               alt={ingredient.name}
             />
             <span>{ingredient.original}</span>
-            <button className='substitute-button' onClick={() => findSubstitutes(ingredient.original)}>Find Substitute</button>
+            <button className='substitute-button' onClick={() => findSubstitutes(ingredient.original)}>Show Substitute</button>
             {
               currSubstitute === ingredient.original && substitute.length > 0 && (
                 <ul className='substitutes-list'>
