@@ -268,8 +268,7 @@ body {
   text-align: center;
   position: fixed;
   top: 60px; /* Adjust this value based on the height of your header */
-  left: 50%;
-  transform: translateX(-50%);
+  left: 20px; /* Position the button on the extreme left side */
   z-index: 1000;
 }
 

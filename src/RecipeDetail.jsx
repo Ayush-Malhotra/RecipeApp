@@ -58,7 +58,7 @@ const RecipeDetail = () => {
       <div className='ingredients-list'>
         {recipe.extendedIngredients.map((ingredient) => (
           <div key={ingredient.id} className='ingredient-item'>
-            <div>
+            <div className='flex'>
             <img 
               className='ingImg'
               src={`https://img.spoonacular.com/ingredients_100x100/${ingredient.image}`} 

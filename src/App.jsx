@@ -196,7 +196,7 @@ function App() {
                   ))}
                 </div>
                 {loading ? (
-                  <div className='loader'>Finding Ingredients...</div>
+                  <div className='loader'>Finding Ingredients,Recipes...</div>
                 ) : (
                   <>
                     <div className='input-group'>
