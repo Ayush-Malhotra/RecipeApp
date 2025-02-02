@@ -47,6 +47,7 @@ const RecipeDetail = () => {
             <span>{ingredient.original}</span>
           </div>
         ))}
+        
       </div>
       <h1>Instructions</h1>
       <div className='instructions-list'>
@@ -59,7 +60,7 @@ const RecipeDetail = () => {
       </div>
     </div>
   );
-  
+
 };
 
 export default RecipeDetail;
