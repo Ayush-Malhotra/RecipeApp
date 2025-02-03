@@ -2,9 +2,9 @@ import { useState,useEffect , useRef} from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
-import RecipeCard from './RecipeCard';
-import RecipeDetail from './RecipeDetail';
-import Header from './Header';
+import RecipeCard from './components/RecipeCard/RecipeCard.jsx';
+import RecipeDetail from './components/RecipeDetail/RecipeDetail.jsx';
+import Header from './components/Header/Header.jsx';
 
 const dietaryOptions = [
   'Gluten Free',
@@ -173,7 +173,7 @@ function App() {
           <Route path="/" element={
             !recipes.length ? (
               <form className='form' onSubmit={handleSubmit} encType="multipart/form-data">
-                <h1 className='title'>Smart Recipe Generator</h1>
+                <h1 className='title'>Smart Recipe Bot</h1>
                 <label className='file-label'>
                   <input
                     className='file-input'

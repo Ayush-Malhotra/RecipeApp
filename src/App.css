@@ -267,7 +267,7 @@ body {
   display: block;
   text-align: center;
   position: fixed;
-  top: 60px; /* Adjust this value based on the height of your header */
+  top: 100px; /* Adjust this value to avoid overlapping with header */
   left: 20px; /* Position the button on the extreme left side */
   z-index: 1000;
 }

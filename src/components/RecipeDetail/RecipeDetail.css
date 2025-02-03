@@ -1,0 +1,91 @@
+.recipe-detail {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recipe-detail .headers {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.recipe-detail h1 {
+  font-size: 1.5rem;
+  text-align: left;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.ingredients-list, .instructions-list {
+  width: 100%;
+  text-align: left;
+}
+
+.ingredient-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.ingImg {
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.substitute-button {
+  margin-top: 5px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.substitute-button:hover {
+  background-color: #0056b3;
+}
+
+.substitutes-list {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.substitutes-list li {
+  margin-bottom: 5px;
+  list-style-type: disc;
+}
+
+.instruction-step {
+  margin-bottom: 20px;
+}
+
+.instruction-step h3 {
+  margin-bottom: 5px;
+}
+
+.recipe-image {
+  width: 90%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.recipe-detail p {
+  white-space: pre-wrap;
+}
+
+.recipe-detail div {
+  white-space: pre-wrap;
+}
